@@ -12,9 +12,10 @@ inline_kb = InlineKeyboardMarkup(inline_keyboard=[
    [InlineKeyboardButton(text="Video - Youtube trends", url='https://www.youtube.com/feed/trending')]
 ])
 
-
 async def inline_kb_dynamic(button_set):
    keyboard = InlineKeyboardBuilder()
    for key in button_set:
-       keyboard.add(InlineKeyboardButton(text=key, url='https://www.cgtn.com/'))
+       #button = InlineKeyboardButton(text=key, callback_data=MyCallbackData(action=key).pack())
+      button = InlineKeyboardButton(text=key, callback_data=key)
+      keyboard.add(button)
    return keyboard.adjust(2).as_markup()
